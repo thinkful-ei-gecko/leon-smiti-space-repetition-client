@@ -1,10 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PracticeWordsList from '../../components/PracticeWordsList/PracticeWordsList';
 
 class DashboardRoute extends Component {
   render() {
     return (
       <section>
-        implement and style me
+        <h2>Spanish</h2>
+        <button className="bigButton">Start practicing!</button>
+        <div className="divider"></div>
+        <PracticeWordsList />
       </section>
     );
   }
