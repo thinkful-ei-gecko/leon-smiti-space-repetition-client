@@ -8,3 +8,12 @@
 img{
     height: 200px;
 }
+
+
+
+@media screen and (min-width: 730px){
+    .login-page{
+        margin: auto;
+        max-width: 550px;
+    }
+}
