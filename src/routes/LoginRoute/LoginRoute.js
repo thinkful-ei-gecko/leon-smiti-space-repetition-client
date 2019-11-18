@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
+import './LoginRoute.css';
 
 class LoginRoute extends Component {
   static defaultProps = {
@@ -17,8 +18,9 @@ class LoginRoute extends Component {
 
   render() {
     return (
-      <section>
+      <section className="login-page">
         <h2>Login</h2>
+        <img src="./login-user.png" alt="login user"></img>
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
         />
