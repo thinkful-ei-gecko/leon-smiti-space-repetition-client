@@ -1,0 +1,22 @@
+Input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+
+Button{
+    background-color: rgb(26, 143, 182);
+    color: black;
+    letter-spacing: 3px;
+    font-weight: bold;
+    padding:14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 100%;
+}
+Button:hover{
+    opacity: 0.8;
+}
+

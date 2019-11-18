@@ -7,11 +7,17 @@
 body {
   margin: 0;
   padding: 0;
+  text-align: center;
   font-family: "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  background-image: url('/background-image.jpeg');
 }
 
 :root {
   --font-size: calc(10px + 1vmin);
 }
+
+
+
