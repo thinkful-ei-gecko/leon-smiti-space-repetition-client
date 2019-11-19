@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +12,6 @@ body {
   font-family: "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
   background-image: url('/background-image.jpeg');
 }
 
@@ -19,5 +19,8 @@ body {
   --font-size: calc(10px + 1vmin);
 }
 
+a{
+  text-decoration: none;
+}
 
 

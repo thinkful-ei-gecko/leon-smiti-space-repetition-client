@@ -1,0 +1,15 @@
+.word-card{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.word-table-row{
+    list-style-type:none;
+    min-width: 200px;
+    border: 1px solid black;
+    margin: 10px;
+    background-color: rgb(121, 167, 203);
+    cursor: pointer;
+    
+}

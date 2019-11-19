@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LanguageApiService from '../../services/language-service';
 import UserContext from '../../contexts/UserContext'
+import './PracticeWordsList.css';
 
 class PracticeWordsList extends Component {
   constructor(props) {
@@ -11,13 +12,13 @@ class PracticeWordsList extends Component {
   }
 
   wordTableVocabularyWord(word, correctGuesses, incorrectGuesses) {
-    let correctGuesses = (correctGuesses) ? correctGuesses : '0';
-    let incorrectGuesses = (incorrectGuesses) ? incorrectGuesses: '0';
+    correctGuesses = (correctGuesses) ? correctGuesses : '0';
+    incorrectGuesses = (incorrectGuesses) ? incorrectGuesses: '0';
     return  <li className="word-table-row">
     <h5 className="flex">{word}</h5>
       <div className="even-space">
-        <h5 className="flex correct-legend">{correctGuesses}</h5>
-        <h5 className="flex incorrect-legend">{incorrectGuesses}</h5>
+        <h5 className="flex correct-legend">Correct : {correctGuesses}</h5>
+        <h5 className="flex incorrect-legend">Incorrect: {incorrectGuesses}</h5>
       </div>
   </li>;
   }
@@ -47,20 +48,9 @@ class PracticeWordsList extends Component {
       <div className="PracticeWordsList">
         <h3>Words to Practice</h3>
         <div className="word-table">
-          <div className="word-table-row">
-            <h5 className="flex">Word</h5>
-            <h5>Guess Count</h5>
-          </div>
-          <div className="word-table-row">
-            <h5 className="flex"> </h5>
-            <div className="even-space">
-              <h5 className="flex correct-legend">Correct</h5>
-              <h5 className="flex incorrect-legend">Incorrect</h5>
-            </div>
-          </div>
-        <ul>
-          {this.state.wordsDisplay}
-        </ul>
+          <ul className="word-card">
+            {this.state.wordsDisplay}
+          </ul>
         </div>
       </div>
     );
