@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import IdleService from '../services/idle-service'
-import LanguageApiService from '../services/language-service';
+
 
 const UserContext = React.createContext({
   user: {},
   words: [],
+  language: '',
   error: null,
   setError: () => {},
   clearError: () => {},
@@ -107,6 +108,7 @@ export class UserProvider extends Component {
     const value = {
       user: this.state.user,
       words: this.state.words,
+      language: this.state.language,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,

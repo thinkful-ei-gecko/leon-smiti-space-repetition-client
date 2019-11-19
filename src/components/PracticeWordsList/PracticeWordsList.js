@@ -10,15 +10,15 @@ class PracticeWordsList extends Component {
       wordsDisplay: []
     }
   }
-
+  
   wordTableVocabularyWord(word, correctGuesses, incorrectGuesses) {
     correctGuesses = (correctGuesses) ? correctGuesses : '0';
     incorrectGuesses = (incorrectGuesses) ? incorrectGuesses: '0';
     return  <li className="word-table-row">
     <h5 className="flex">{word}</h5>
       <div className="even-space">
-        <h5 className="flex correct-legend">Correct : {correctGuesses}</h5>
-        <h5 className="flex incorrect-legend">Incorrect: {incorrectGuesses}</h5>
+        <h5 className="flex correct-legend">Correct Answer Count: {correctGuesses}</h5>
+        <h5 className="flex incorrect-legend">Incorrect Answer Count: {incorrectGuesses}</h5>
       </div>
   </li>;
   }
@@ -27,6 +27,10 @@ class PracticeWordsList extends Component {
     await LanguageApiService.fetchWords()
       .then(res => {
         UserContext.words = res.words;
+        console.log(res.language.name)
+
+        UserContext.language = res.language.name;
+        console.log(UserContext.language)
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -46,6 +50,7 @@ class PracticeWordsList extends Component {
   render() {
     return(
       <div className="PracticeWordsList">
+        <p>{UserContext.language}</p>
         <h3>Words to Practice</h3>
         <div className="word-table">
           <ul className="word-card">
