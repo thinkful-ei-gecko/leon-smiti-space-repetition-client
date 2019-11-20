@@ -12,3 +12,47 @@
 .prac-button{
     width: 50%;
 }
+
+
+@media screen and (min-width: 730px){
+    
+
+    .dash-button{
+        width: 20%;
+        font-size: 20px;
+       
+    }
+  }
+
+
+
+  .word-card{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0px;
+    margin: 40px;
+    
+}
+
+.word-table-row{
+    list-style-type:none;
+    min-width: 200px;
+    border: 1px solid black;
+    margin: 10px;
+    background-color: rgb(112, 180, 232);
+    cursor: pointer;
+    
+}
+
+
+@media screen and (min-width: 730px){
+
+    .word-card{
+        font-size: 28px;
+    }
+
+    .word-table-row{    
+        min-width: 400px;  
+    }
+  }

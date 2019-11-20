@@ -1,0 +1,18 @@
+.card-container{
+    margin: 20px;
+    padding: 20px;
+    height: 440px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+
+@media screen and (min-width: 730px){
+    .card-container{
+        font-size: 22px;
+        width: 750px;
+        margin: auto;
+
+    }
+  }
