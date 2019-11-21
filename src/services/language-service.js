@@ -45,13 +45,14 @@ const LanguageApiService = {
     });
   },
   postGuess(guess){
+    console.log(guess);
     return fetch(`${config.API_ENDPOINT}/language/guess`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
-      body: JSON.stringify({guess})
+      body: JSON.stringify({guess: guess})
     })
     .then(res => {
       return(!res.ok)

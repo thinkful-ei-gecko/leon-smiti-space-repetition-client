@@ -35,12 +35,12 @@ class LearningRoute extends Component {
       })
   }
 
-  handleSubmitAnswer = e => {
+  handleSubmitAnswer = async (e) => {
     e.preventDefault();
     this.setState({ guessAnswer: true})
-    LanguageApiService.postGuess({ guessAnswer: true})
+    // LanguageApiService.postGuess({ guessAnswer: true})
 
-    LanguageApiService.postGuess(this.state.answer)
+    await LanguageApiService.postGuess(this.state.answer)
      .then(res => {
        if(res.isCorrect){
          this.setState({
@@ -88,7 +88,7 @@ class LearningRoute extends Component {
           <Label htmlFor="learn-guess-input">
             What's the translation for this word?
           </Label>
-          <Input type="text" name="learn-guess-input" id="learn-guess-input"required/>  
+          <Input type="text" name="learn-guess-input" id="learn-guess-input" onChange={(e) => this.setState({answer: e.currentTarget.value})} required/>  
           <Button type="submit">Submit your answer</Button>
         </form>
         )
@@ -96,7 +96,10 @@ class LearningRoute extends Component {
       else
       {
         return (
-          <Button type="click" onClick = {this.handleNextButton}>Try another word</Button>
+          <div>
+          {this.displayResult()}
+          <Button type="click" onClick = {this.handleNextButton}>Try another word!</Button>
+          </div>
         )
       }
   }
@@ -105,16 +108,16 @@ class LearningRoute extends Component {
     if(this.state.isCorrect){
       return(
         <>
-          <h2>Correct answered</h2>
-          <p>The correct translation for {this.state.currentWord} is {this.state.correctAnswer}</p>
+          <h2>You were correct! :D</h2>
+          <div className="DisplayFeedback"><p>The correct translation for {this.state.currentWord} was {this.state.correctAnswer} and you chose {this.state.answer}!</p></div>
         </>
       )
     }
     else{
       return(
         <>
-          <h2>Incorrect answered</h2>
-          <p>The correct translation for {this.state.currentWord} is {this.state.correctAnswer}</p>
+          <h2>Good try, but not quite right :(</h2>
+          <div className="DisplayFeedback"><p>The correct translation for {this.state.currentWord} was {this.state.correctAnswer} and you chose {this.state.answer}!</p></div>
         </>
       )
     }
@@ -134,7 +137,7 @@ class LearningRoute extends Component {
           <main role='main' className='card-container'>      
             {cardhead}
             {this.displayForm()}
-            <p>Your total score is: {this.state.totalScore}</p>
+            <div className="DisplayScore"><p className="DisplayScore">Your total score is: {this.state.totalScore}</p></div>
             <p className="Correct-Count">You have answered this word correctly {this.state.wordCorrectCount} times.</p>
             <p className="Incorrect-Count">You have answered this word incorrectly {this.state.wordIncorrectCount} times.</p>       
           </main>
